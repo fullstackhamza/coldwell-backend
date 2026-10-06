@@ -24,6 +24,8 @@ class ProductBase(CamelModel):
     # is the card/thumbnail image; the rest form the product page gallery.
     images: list[str] = Field(default_factory=list)
     description: str
+    # Bullet lines shown under "Product Details" on the product page.
+    details: list[str] = Field(default_factory=list)
     is_new_arrival: bool = False
     is_best_seller: bool = False
     # One-of-a-kind secondhand items. Unlike regular products (which just
@@ -53,6 +55,7 @@ class ProductUpdate(CamelModel):
     unavailable_sizes: Optional[list[str]] = None
     images: Optional[list[str]] = None
     description: Optional[str] = None
+    details: Optional[list[str]] = None
     is_new_arrival: Optional[bool] = None
     is_best_seller: Optional[bool] = None
     is_thrift: Optional[bool] = None
